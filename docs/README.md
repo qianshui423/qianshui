@@ -1,3 +1,3 @@
-# Headline
+# 千水博客
 
-> An awesome project.
+> 做负责任的博客，享受开源，享受快乐
