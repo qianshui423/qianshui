@@ -18,3 +18,5 @@
 
 - Git
  - [Git常用命令](git-command.md)
+
+- 机器学习
