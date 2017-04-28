@@ -18,10 +18,10 @@
 - Adb
  - [Adb常用命令](adb-command.md)
 
-- Git
- - [Git简介](git.md)
- - [Git常用命令](git-command.md)
- - [Git Submodules](git-submodules.md)
+- [Git](/git)
+ - [Git简介](/git/git.md)
+ - [Git常用命令](/git/git-command.md)
+ - [Git Submodules](/git/git-submodules.md)
 
 - MVP
  - [关于MVP的一点总结](mvp-summary.md)
