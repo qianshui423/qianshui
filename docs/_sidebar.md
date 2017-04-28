@@ -1,5 +1,4 @@
-- RxJava
- - [RxJava简介](/rxjava/rxjava.md)
+- [RxJava](/rxjava/rxjava.md)
  - [RxJava Backpressure](/rxjava/rxjava-backpressure.md)
 
 - Gradle
@@ -17,8 +16,7 @@
 - Adb
  - [Adb常用命令](adb-command.md)
 
-- Git
- - [Git简介](/git/git.md)
+- [Git](/git/git.md)
  - [Git常用命令](/git/git-command.md)
  - [Git Submodules](/git/git-submodules.md)
 
