@@ -1,5 +1,7 @@
 - RxJava
- - [RxJava Backpressure](rxjava-backpressure.md)
+
+ - [RxJava简介](./rxjava/rxjava.md)
+ - [RxJava Backpressure](./rxjava/rxjava-backpressure.md)
 
 - Gradle
  - [Gradle常用命令](gradle-command.md)
@@ -17,6 +19,11 @@
  - [Adb常用命令](adb-command.md)
 
 - Git
- - [Git常用命令](git-command.md)
+ - [Git简介](./git/git.md)
+ - [Git常用命令](./git/git-command.md)
+ - [Git Submodules](./git/git-submodules.md)
+
+- MVP
+ - [关于MVP的一点总结](mvp-summary.md)
 
 - 机器学习
