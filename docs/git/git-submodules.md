@@ -173,7 +173,7 @@ Submodule OpenSpace 5d6818c..3390a66:
 
 如果在此时提交，会将子模块锁定为其他人更新时的新代码  
 
-如果不想在子目录中手动抓取与合并，还可以git submodule update --remote OpenSpace，Git会进入子模块然后抓取并更新
+如果不想在子目录中手动抓取与合并，还可以 git submodule update --remote OpenSpace，Git会进入子模块然后抓取并更新
 
 ```
 $ git submodule update --remote
@@ -239,7 +239,7 @@ Submodules changed but not updated:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-此时运行git diff，可以看到刚刚修改.gitmodules文件，同时还会携带几个已拉取的提交，需要提交到当前工程的子模块项目中
+此时运行 git diff，可以看到刚刚修改.gitmodules文件，同时还会携带几个已拉取的提交，需要提交到当前工程的子模块项目中
 
 ```
 $ git diff
@@ -281,13 +281,13 @@ Submodule OpenSpace 5d6818c..81ad63c:
   > test submoudles
 ```
 
-当运行git submodule update --remote时，Git会默认尝试更新所有子模块，如果更新某个子模块的话，则传递该子模块的名字
+当运行 git submodule update --remote 时，Git会默认尝试更新所有子模块，如果更新某个子模块的话，则传递该子模块的名字
 
 ## 在子模块上工作
 
 截止目前操作，OpenSpace子模块处在‘游离的HEAD’状态，还无法跟踪改动  
 
-为了将子模块设置得更容易修改，需要做两件事：第一，进入每个子模块并检出其相应的工作分支，第二，执行git submodule update --remote来从上游拉取新工作，可以手动指定merge参数，此时可以看到一行插入改变（要先在OpenSpace分支提交push一个改变）
+为了将子模块设置得更容易修改，需要做两件事：第一，进入每个子模块并检出其相应的工作分支，第二，执行 git submodule update --remote 来从上游拉取新工作，可以手动指定merge参数，此时可以看到一行插入改变（要先在OpenSpace分支提交push一个改变）
 
 ```
 $ git checkout stable
@@ -352,7 +352,7 @@ Unable to rebase '72198269caacafe8d7e43b78a18a880209fb50c4' in submodule path 'O
 
 由于同时修改了同一个文件，产生了冲突，进入子模块解决冲突，执行git add [file]，标记冲突已解决，然后执行git rebase --continue即可
 
-如果在执行git submodule update --remote --rebase时忘记--rebase或--merge，Git会将子模块更新为服务器上的状态，并且会将项目重置为一个游离的HEAD状态  
+如果在执行 git submodule update --remote --rebase 时忘记--rebase或--merge，Git会将子模块更新为服务器上的状态，并且会将项目重置为一个游离的HEAD状态  
 
 即时发生了也可以解决，只需进入到子模块中再次检出你的分支，然后手动合并或变基origin/stable（或者任何一个你需要的远程分支）即可
 
@@ -448,12 +448,159 @@ Fast-forward
 
 注意：理解主工程的特殊提交，再结合Git提示，就可以正确解决冲突问题  
 
-关于子模块引用改变的问题后续补充
-
 ## 子模块技巧－可以理解为全局操作
 
-未完待续
+### 子模块遍历
+
+查看所有子模块状态
+
+```
+$ git submodule foreach 'git status'
+Entering 'OpenSpace'
+On branch stable
+Your branch is up-to-date with 'origin/stable'.
+nothing to commit, working tree clean
+```
+
+保存所有子模块进度
+
+```
+$ git submodule foreach 'git stash'
+Entering 'OpenSpace'
+No local changes to save
+```
+
+将所有子模块切出一个新分支
+
+```
+$ git submodule foreach 'git checkout -b featureA'
+Entering 'OpenSpace'
+Switched to a new branch 'featureA'
+```
+
+生成主项目和所有子模块的改动
+
+```
+$ git diff; git submodule foreach 'git diff'
+Entering 'OpenSpace'
+```
+
+### 有用的别名
+
+```
+$ git config alias.sdiff '!'"git diff && git submodule foreach 'git diff'"
+$ git sdiff
+Entering 'OpenSpace'
+$ git config alias.spush 'push --recurse-submodules=on-demand'
+$ git spush
+Everything up-to-date
+$ git config alias.supdate 'submodule update --remote --merge'
+$ git supdate
+```
 
 ## 分支切换引起的问题
 
-未完待续
+### 第一个场景
+
+在有子模块的项目中切换分支会遇到问题。例如，创建一个新分支，在其中添加一个子模块，之后切换到没有该子模块的分支上时，会有一个还未跟踪的子模块目录。
+
+模拟一下出现问题的完整过程
+
+```
+$ mkdir problem
+$ cd problem/
+$ git init
+Initialized empty Git repository in ~/problem/.git/
+$ git ci -am 'first commit'
+On branch master
+
+Initial commit
+
+nothing to commit
+$ vim README.md
+$ git add .
+$ git ci -m 'first commit'
+[master (root-commit) 7b6dfd2] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+$ git co -b add-openspace
+Switched to a new branch 'add-openspace'
+$ git submodule add https://github.com/qianshui423/OpenSpace.git
+Cloning into '/Users/liuxuehao/Documents/dasouche/GreatInWhere/test/test-test/problem/OpenSpace'...
+remote: Counting objects: 47, done.
+remote: Compressing objects: 100% (23/23), done.
+remote: Total 47 (delta 13), reused 0 (delta 0), pack-reused 23
+Unpacking objects: 100% (47/47), done.
+$ git ci -am 'adding openspace library'
+[add-openspace 38f69d6] adding openspace library
+ 2 files changed, 4 insertions(+)
+ create mode 100644 .gitmodules
+ create mode 160000 OpenSpace
+$ git checkout master
+warning: unable to rmdir OpenSpace: Directory not empty
+Switched to branch 'master'
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	OpenSpace/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+切换回有OpenSpace子模块的分支，文档上说，需要执行 git submodule update --init，实际上不执行没有问题(Git版本 2.12.2)。
+
+```
+$ git clean -fdx
+Skipping repository OpenSpace/
+$ git co add-openspace
+Switched to branch 'add-openspace'
+$ ls OpenSpace/
+AMap			EventBus		testSubmoudles
+ButterKnife		gitlab.token		阿里矢量图标库
+$ git status
+On branch add-openspace
+nothing to commit, working tree clean
+```
+
+### 第二个场景
+
+将子目录转换为子模块的问题，我理解为不规范操作引起的。
+
+场景重现预备环境，创建一个和子模块相同名字的文件夹，然后用 rm -Rf OpenSpace/ 删除
+
+场景重现结果
+
+```
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    OpenSpace/test
+
+no changes added to commit (use "git add" and/or "git commit -a")
+$ git submodule add https://github.com/qianshui423/OpenSpace.git
+'OpenSpace' already exists in the index
+```
+
+解决方式，使用 git rm -r OpenSpace 删除，然后重新add子模块
+
+### 第三个场景（没有验证）
+
+当你在一个存在子模块的分支下，并在子模块中作了改动，并且改动处于工作空间的改动，此时切换分支，切换回的分支子目录中存在改动的文件，这样会发生错误
+
+```
+$ git checkout master
+error: The following untracked working tree files would be overwritten by checkout:
+  OpenSpace/testmodule
+  ...
+Please move or remove them before you can switch branches.
+Aborting
+```
+
+可以通过 check -f 来强制切换，如果其中还有未保存的修改，这个命令会把它们覆盖掉
+
+当切换到有子模块的分支后，因为某些原因你得到了一个空的 OpenSpace 目录，并且 git submodule update 也无法修复它。 你需要进入到子模块目录中运行 git checkout . 来找回所有的文件。 你也可以通过 submodule foreach 脚本来为多个子模块运行它
