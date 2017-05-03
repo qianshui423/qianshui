@@ -21,6 +21,7 @@
  - [Git简介](/git/git.md)
  - [Git常用命令](/git/git-command.md)
  - [Git Submodules](/git/git-submodules.md)
+ - [Git有趣的部分](/git/git-suprise.md)
 
 - MVP
  - [关于MVP的一点总结](mvp-summary.md)
