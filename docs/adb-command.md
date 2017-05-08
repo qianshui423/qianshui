@@ -14,3 +14,5 @@
 > adb shell install -g com.package.name
 8. 应用运行期间授权或者取消授权
 > adb shell pm grant/revoke my.package.name some.permission.name
+9.查看80QBCP6222F3的日志
+> adb -s 80QBCP6222F3 logcat -v threadtime -b all
