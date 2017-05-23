@@ -25,6 +25,7 @@
 
 - ProGuard manual
  - [简介](/proguard/proguard.md)
+ - [基本配置](/proguard/proguard-config.md)
 
 - MVP
  - [关于MVP的一点总结](mvp-summary.md)
