@@ -3,7 +3,9 @@
  - [Backpressure](/rxjava/rxjava-backpressure.md)
 
 - Gradle
- - [常用命令](gradle-command.md)
+ - [简介](/gradle/gradle.md)
+ - [常用命令](/gradle/gradle-command.md)
+ - [问题记录](/gradle/gradle-suprise.md)
 
 - Markdown
  - [转义](markdown-escape.md)

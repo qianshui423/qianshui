@@ -34,3 +34,9 @@
 
 12. 列出应用所有安装权限
 > adb shell pm list permissions -d -g
+
+13. 解决部分国内厂商USB无法识别问题(找到供应商ID/Vender ID，加入到adb_usb.ini中)
+> system_profiler SPUSBDataType  
+> vim ~/.android/adb_usb.ini  
+> adb kill-server 
+> adb devices
