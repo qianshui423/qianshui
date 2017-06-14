@@ -24,10 +24,14 @@
  - [常用命令](/git/git-command.md)
  - [子模块](/git/git-submodules.md)
  - [有趣的部分](/git/git-suprise.md)
+ - [chrrry-pick](/git/git-cherrypick.md)
 
 - ProGuard manual
  - [简介](/proguard/proguard.md)
  - [基本配置](/proguard/proguard-config.md)
+
+- Tool
+ - [H5页面调试](/tool/front-end.md)
 
 - MVP
  - [关于MVP的一点总结](mvp-summary.md)
