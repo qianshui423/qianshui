@@ -33,6 +33,9 @@
 - Tool
  - [H5页面调试](/tool/front-end.md)
 
+- JS
+ - [读书笔记](/js/js.md)
+
 - MVP
  - [关于MVP的一点总结](mvp-summary.md)
 
