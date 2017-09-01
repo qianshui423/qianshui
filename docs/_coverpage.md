@@ -1,2 +1,2 @@
-# 欢迎来到千水博客
-# 享受技术，享受生活
+# Welcome to QianShui Blog
+# Enjoy Life, Enjoy Technology

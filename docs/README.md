@@ -1,3 +1,3 @@
-# 千水博客
+# QianShui
 
-享受技术，享受生活
+Enjoy Life，Enjoy Technology!

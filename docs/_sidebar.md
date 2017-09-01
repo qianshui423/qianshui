@@ -26,6 +26,9 @@
  - [有趣的部分](/git/git-suprise.md)
  - [chrrry-pick](/git/git-cherrypick.md)
 
+- Mac
+ - [常用命令](/mac/mac-command.md)
+
 - ProGuard manual
  - [简介](/proguard/proguard.md)
  - [基本配置](/proguard/proguard-config.md)
@@ -46,3 +49,6 @@
  - [React Native Style命名规范](/rn/style-standard.md)
 
 - 机器学习
+
+- 其他
+ - [二手车车况](/other/used-car-general-knowledge.md)
