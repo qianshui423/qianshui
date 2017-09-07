@@ -1,5 +1,5 @@
 1. 删除远程分支
-> git push origin  :branch_name
+> git push origin  :branch_name 或 git push --delete origin branch_name
 
 2. 新建远程分支
 > git push origin local_branch:remote_branch
@@ -21,3 +21,15 @@
 
 8. 强制推向远程分支
 > git push -f origin master
+
+9. 删除远程标签
+> git push origin --delete tag <tagname>
+
+10. 删除本地标签
+> git tag -d <tagname>
+
+11. 删除掉没有与远程分支对应的本地分支
+> git fetch -p
+
+12. 修改本地分支名称
+> git branch -m devel develop
