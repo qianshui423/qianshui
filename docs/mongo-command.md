@@ -1,3 +1,10 @@
+https://docs.mongodb.com/master/tutorial/install-mongodb-on-os-x/  
+
+https://docs.mongodb.com/master/tutorial/enable-authentication/  
+
+https://docs.mongodb.com/manual/reference/program/mongos/index.html  
+
+
 1. 连接远程mongo数据库
 > mongo 192.168.1.200:27017/test -u user -p password
 
@@ -24,3 +31,9 @@
 
 9. 查看对表的命令
 > db.collection.help()
+
+10. 登录远程数据库
+> mongo --port 27017 -u "userName" -p "password" --authenticationDatabase "databaseName"
+
+11. 开启数据库服务
+> mongod --port 27017 --dbpath /data/db --auth --fork --logpath=log/mongodb.log
