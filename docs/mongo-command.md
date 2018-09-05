@@ -36,4 +36,4 @@ https://docs.mongodb.com/manual/reference/program/mongos/index.html
 > mongo --port 27017 -u "userName" -p "password" --authenticationDatabase "databaseName"
 
 11. 开启数据库服务
-> mongod --port 27017 --dbpath /data/db --auth --fork --logpath=log/mongodb.log
+> mongod --port 27017 --dbpath /data/db --auth --fork --logpath=/data/log/mongodb.log
