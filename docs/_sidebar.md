@@ -14,7 +14,8 @@
  - [常用命令](linux-command.md)
 
 - Mongo
- - [常用命令](mongo-command.md)
+ - [常用命令](/mongo/mongo-command.md)
+ - [小白学习](/mongo/mongo-xiaobai.md)
 
 - Adb
  - [常用命令](adb-command.md)
