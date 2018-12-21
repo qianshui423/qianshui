@@ -52,7 +52,8 @@
 - JSON
  - [简介](/json/json.md)
 
-- 机器学习
+- Nginx
+ - [简介](/nginx/nginx.md)
 
 - 其他
  - [二手车车况](/other/used-car-general-knowledge.md)
