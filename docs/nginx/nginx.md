@@ -51,3 +51,14 @@ nginx -h
 nginx -?
 ```
 
+#### 安装文件上传模块
+
+```shell
+# 上传模块仓库
+https://github.com/fdintino/nginx-upload-module
+# ubuntu 解包：
+https://coderwall.com/p/drhh8w/nginx-add-modules-and-repack-on-debian
+# 安装重新打包deb
+dpkg --install *.deb
+```
+
