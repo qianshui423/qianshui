@@ -62,3 +62,16 @@ https://coderwall.com/p/drhh8w/nginx-add-modules-and-repack-on-debian
 dpkg --install *.deb
 ```
 
+#### 卸载 Nginx
+
+```shell
+# 列出本地与 ngnix 有关的软件包
+dpkg --get-selections | grep nginx
+# 卸载 nginx
+apt-get remove --purge nginx
+apt-get remove --purge nginx-core
+apt-get remove --purge nginx-common
+apt-get remove --purge nginx-doc
+apt-get remove --purge nginx-full-dbg
+```
+
